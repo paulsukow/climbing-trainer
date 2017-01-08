@@ -4,6 +4,18 @@ import { MyApp } from './app.component';
 import { Page1 } from '../pages/page1/page1';
 import { Page2 } from '../pages/page2/page2';
 
+// Import the AF2 Module
+import { AngularFireModule } from 'angularfire2';
+
+// AF2 Settings
+export const firebaseConfig = {
+  apiKey: "AIzaSyACyIPWBH7gOCR6yB1N7Vi_fiLWy23lLg4",
+  authDomain: "climbingtrainer-b0668.firebaseapp.com",
+  databaseURL: "https://climbingtrainer-b0668.firebaseio.com",
+  storageBucket: "climbingtrainer-b0668.appspot.com",
+  messagingSenderId: "986263805809"
+};
+
 @NgModule({
   declarations: [
     MyApp,
@@ -11,7 +23,8 @@ import { Page2 } from '../pages/page2/page2';
     Page2
   ],
   imports: [
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    AngularFireModule.initializeApp(firebaseConfig)
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -21,4 +34,5 @@ import { Page2 } from '../pages/page2/page2';
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}]
 })
+
 export class AppModule {}
