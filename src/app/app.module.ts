@@ -3,6 +3,7 @@ import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 import { Page1 } from '../pages/page1/page1';
 import { Page2 } from '../pages/page2/page2';
+import { SimpleTimerPage } from '../pages/simple-timer/simple-timer';
 
 // Import the AF2 Module
 import { AngularFireModule } from 'angularfire2';
@@ -20,7 +21,8 @@ export const firebaseConfig = {
   declarations: [
     MyApp,
     Page1,
-    Page2
+    Page2,
+    SimpleTimerPage
   ],
   imports: [
     IonicModule.forRoot(MyApp),
@@ -30,7 +32,8 @@ export const firebaseConfig = {
   entryComponents: [
     MyApp,
     Page1,
-    Page2
+    Page2,
+    SimpleTimerPage
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}]
 })
