@@ -15,10 +15,13 @@ export class SimpleTimerPage {
 
   startStopText: string;
   timerStarted: boolean;
+  time: number;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     this.startStopText = 'Start';
     this.timerStarted = false;
+
+    this.time = 0
   }
 
   ionViewDidLoad() {
