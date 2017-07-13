@@ -13,7 +13,7 @@ import { SimpleTimerPage } from '../pages/simple-timer/simple-timer'
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = Page1;
+  rootPage: any = SimpleTimerPage;
 
   pages: Array<{title: string, component: any}>;
 

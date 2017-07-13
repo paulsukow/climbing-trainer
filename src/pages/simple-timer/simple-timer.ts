@@ -14,14 +14,11 @@ import { NavController, NavParams } from 'ionic-angular';
 export class SimpleTimerPage {
 
   startStopText: string;
-
   timerStarted: boolean;
-  timerStopped: boolean;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     this.startStopText = 'Start';
     this.timerStarted = false;
-    this.timerStopped = true;
   }
 
   ionViewDidLoad() {
@@ -29,16 +26,7 @@ export class SimpleTimerPage {
   }
 
   startStopClicked(event) {
-
-    if (!this.timerStarted) {
-      this.startStopText = 'Stop';
-      // this.timerStarted = true;
-    }
-
-    if (this.timerStarted) {
-      this.startStopText = 'Start';
-    }
-
     this.timerStarted = !this.timerStarted;
+    this.startStopText = this.timerStarted ? 'Stop' : 'Start';
   }
 }
