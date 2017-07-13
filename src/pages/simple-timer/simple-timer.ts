@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
+import * as moment from 'moment';
 
 /*
   Generated class for the SimpleTimer page.
@@ -15,13 +16,13 @@ export class SimpleTimerPage {
 
   startStopText: string;
   timerStarted: boolean;
-  time: number;
+  time: string;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     this.startStopText = 'Start';
     this.timerStarted = false;
 
-    this.time = 0
+    this.time = moment().format('LLLL')
   }
 
   ionViewDidLoad() {
