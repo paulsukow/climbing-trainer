@@ -13,10 +13,32 @@ import { NavController, NavParams } from 'ionic-angular';
 })
 export class SimpleTimerPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {}
+  startStopText: string;
+
+  timerStarted: boolean;
+  timerStopped: boolean;
+
+  constructor(public navCtrl: NavController, public navParams: NavParams) {
+    this.startStopText = 'Start';
+    this.timerStarted = false;
+    this.timerStopped = true;
+  }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad SimpleTimerPage');
   }
 
+  startStopClicked(event) {
+
+    if (!this.timerStarted) {
+      this.startStopText = 'Stop';
+      // this.timerStarted = true;
+    }
+
+    if (this.timerStarted) {
+      this.startStopText = 'Start';
+    }
+
+    this.timerStarted = !this.timerStarted;
+  }
 }
