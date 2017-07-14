@@ -17,20 +17,28 @@ export class SimpleTimerPage {
   startStopText: string;
   timerStarted: boolean;
   time: string;
+  counter: number;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     this.startStopText = 'Start';
     this.timerStarted = false;
 
-    this.time = moment().format('LLLL')
+    this.counter = 0;
+    this.time = '0';
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad SimpleTimerPage');
   }
 
+  displayTime() {
+    return moment().hour(0).minute(0).second(this.counter++).format('HH : mm : ss');
+  }
+
   startStopClicked(event) {
     this.timerStarted = !this.timerStarted;
     this.startStopText = this.timerStarted ? 'Stop' : 'Start';
+
+    this.time = this.displayTime();
   }
 }
