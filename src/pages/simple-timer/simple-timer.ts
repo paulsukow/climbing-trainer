@@ -39,8 +39,14 @@ export class SimpleTimerPage {
 
   startStopClicked(event) {
     this.timerStarted = !this.timerStarted;
-    this.startStopText = this.timerStarted ? 'Stop' : 'Start';
 
-    this.timer = setInterval(() => {this.displayTime();}, 1000);
+    if (this.timerStarted) {
+      this.startStopText = 'Stop';
+      this.timer = setInterval(() => {this.displayTime();}, 1000);
+    }
+    else {
+      this.startStopText = 'Start';
+      clearTimeout(this.timer)
+    }
   }
 }
