@@ -34,7 +34,6 @@ export class SimpleTimerPage {
 
   displayTime() {
     this.time =  moment().hour(0).minute(0).second(this.counter++).format('HH : mm : ss');
-
   }
 
   startStopClicked(event) {
@@ -48,5 +47,10 @@ export class SimpleTimerPage {
       this.startStopText = 'Start';
       clearTimeout(this.timer)
     }
+  }
+
+  resetClicked(event) {
+    this.counter = 0;
+    this.time = moment().hour(0).minute(0).second(0).format('HH : mm : ss');
   }
 }

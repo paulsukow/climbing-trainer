@@ -18,8 +18,21 @@
 
 <ion-content padding>
 
-  <ion-label>{{time}}</ion-label>
+  <ion-grid>
 
-  <button ion-button full (click)="startStopClicked()">{{startStopText}}</button>
+    <ion-row>
+        <ion-label text-center >{{time}}</ion-label>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <button ion-button full (click)="startStopClicked()">{{startStopText}}</button>
+      </ion-col>
+      <ion-col>
+        <button ion-button full (click)="resetClicked()">Reset</button>
+      </ion-col>
+    </ion-row>
+
+  </ion-grid>
 
 </ion-content>
