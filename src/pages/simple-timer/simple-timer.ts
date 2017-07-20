@@ -16,6 +16,8 @@ export class SimpleTimerPage {
 
   startStopText: string;
   timerStarted: boolean;
+  showLapButton: boolean;
+  showResetButton: boolean;
   time: string;
   counter: number;
   private timer;
@@ -23,6 +25,8 @@ export class SimpleTimerPage {
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     this.startStopText = 'Start';
     this.timerStarted = false;
+    this.showLapButton = false;
+    this.showResetButton = false;
 
     this.counter = 0;
     this.time = moment().hour(0).minute(0).second(0).format('HH : mm : ss');
@@ -38,19 +42,25 @@ export class SimpleTimerPage {
 
   startStopClicked(event) {
     this.timerStarted = !this.timerStarted;
+    this.showLapButton = !this.showLapButton;
 
     if (this.timerStarted) {
-      this.startStopText = 'Stop';
+      this.startStopText = 'Pause';
       this.timer = setInterval(() => {this.displayTime();}, 1000);
+      this.showResetButton = false;
     }
     else {
-      this.startStopText = 'Start';
-      clearTimeout(this.timer)
+      this.startStopText = 'Resume';
+      clearTimeout(this.timer);
+      this.showResetButton = true;
     }
   }
 
   resetClicked(event) {
     this.counter = 0;
+    this.startStopText = 'Start';
     this.time = moment().hour(0).minute(0).second(0).format('HH : mm : ss');
   }
+  //add lap logic
+
 }

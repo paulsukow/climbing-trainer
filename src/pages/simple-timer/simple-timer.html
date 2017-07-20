@@ -25,12 +25,19 @@
     </ion-row>
 
     <ion-row>
+
       <ion-col>
         <button ion-button full (click)="startStopClicked()">{{startStopText}}</button>
       </ion-col>
-      <ion-col>
+
+      <ion-col *ngIf="showResetButton">
         <button ion-button full (click)="resetClicked()">Reset</button>
       </ion-col>
+
+      <ion-col *ngIf="showLapButton">
+        <button ion-button full (click)="lapClicked()">Lap</button>
+      </ion-col>
+
     </ion-row>
 
   </ion-grid>
