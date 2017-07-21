@@ -63,6 +63,7 @@ export class SimpleTimerPage {
     this.startStopText = 'Start';
     this.showResetButton = false;
     this.time = moment().hour(0).minute(0).second(0).format('HH : mm : ss');
+    this.laps = [];
   }
 
   lapClicked(event) {
@@ -75,6 +76,4 @@ export class SimpleTimerPage {
   // delete lap
   //lap total times
   //scroll laps
-
-
 }
