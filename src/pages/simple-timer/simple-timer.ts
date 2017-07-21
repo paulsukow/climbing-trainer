@@ -59,8 +59,13 @@ export class SimpleTimerPage {
   resetClicked(event) {
     this.counter = 0;
     this.startStopText = 'Start';
+    this.showResetButton = false;
     this.time = moment().hour(0).minute(0).second(0).format('HH : mm : ss');
   }
-  //add lap logic
 
+  lapClicked(event) {
+    this.counter = 0;
+    this.startStopText = 'Start';
+    this.time = moment().hour(0).minute(0).second(0).format('HH : mm : ss');
+  }
 }
