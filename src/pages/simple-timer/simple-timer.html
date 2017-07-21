@@ -21,7 +21,12 @@
   <ion-grid>
 
     <ion-row>
-        <ion-label text-center >{{time}}</ion-label>
+      <ion-col col-full>
+        <ion-list>
+          <ion-item text-center>{{time}}</ion-item>
+          <ion-item text-center *ngFor="let lap of laps">{{lap}}</ion-item>
+        </ion-list>
+      </ion-col>
     </ion-row>
 
     <ion-row>

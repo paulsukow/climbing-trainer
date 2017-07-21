@@ -19,6 +19,7 @@ export class SimpleTimerPage {
   showLapButton: boolean;
   showResetButton: boolean;
   time: string;
+  laps: string[];
   counter: number;
   private timer;
 
@@ -27,6 +28,7 @@ export class SimpleTimerPage {
     this.timerStarted = false;
     this.showLapButton = false;
     this.showResetButton = false;
+    this.laps = [];
 
     this.counter = 0;
     this.time = moment().hour(0).minute(0).second(0).format('HH : mm : ss');
@@ -64,8 +66,15 @@ export class SimpleTimerPage {
   }
 
   lapClicked(event) {
+    this.laps.unshift(this.time);
+
     this.counter = 0;
-    this.startStopText = 'Start';
     this.time = moment().hour(0).minute(0).second(0).format('HH : mm : ss');
   }
+
+  // delete lap
+  //lap total times
+  //scroll laps
+
+
 }
