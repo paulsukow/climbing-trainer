@@ -23,8 +23,8 @@
     <ion-row>
       <ion-col col-full>
         <ion-list>
-          <ion-item text-center>{{time}}</ion-item>
-          <ion-item text-center *ngFor="let lap of laps">{{lap}}</ion-item>
+          <ion-item text-center>{{totalTime}}</ion-item>
+          <ion-item text-center *ngFor="let totalTimeAtLap of totalTimeAtLaps">{{totalTimeAtLap}}</ion-item>
         </ion-list>
       </ion-col>
     </ion-row>

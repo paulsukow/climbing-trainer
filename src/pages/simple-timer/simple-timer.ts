@@ -14,24 +14,27 @@ import * as moment from 'moment';
 })
 export class SimpleTimerPage {
 
-  startStopText: string;
   timerStarted: boolean;
+  startStopText: string;
+
   showLapButton: boolean;
   showResetButton: boolean;
-  time: string;
-  laps: string[];
-  counter: number;
+
   private timer;
+
+  totalTimeCounter: number;
+  totalTime: string;
+  totalTimeAtLaps: string[];
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     this.startStopText = 'Start';
     this.timerStarted = false;
     this.showLapButton = false;
     this.showResetButton = false;
-    this.laps = [];
+    this.totalTimeAtLaps = [];
 
-    this.counter = 0;
-    this.time = moment().hour(0).minute(0).second(0).format('HH : mm : ss');
+    this.totalTimeCounter = 0;
+    this.totalTime = moment().hour(0).minute(0).second(0).format('HH : mm : ss');
   }
 
   ionViewDidLoad() {
@@ -39,7 +42,7 @@ export class SimpleTimerPage {
   }
 
   displayTime() {
-    this.time =  moment().hour(0).minute(0).second(this.counter++).format('HH : mm : ss');
+    this.totalTime =  moment().hour(0).minute(0).second(this.totalTimeCounter++).format('HH : mm : ss');
   }
 
   startStopClicked(event) {
@@ -59,18 +62,18 @@ export class SimpleTimerPage {
   }
 
   resetClicked(event) {
-    this.counter = 0;
+    this.totalTimeCounter = 0;
     this.startStopText = 'Start';
     this.showResetButton = false;
-    this.time = moment().hour(0).minute(0).second(0).format('HH : mm : ss');
-    this.laps = [];
+    this.totalTime = moment().hour(0).minute(0).second(0).format('HH : mm : ss');
+    this.totalTimeAtLaps = [];
   }
 
   lapClicked(event) {
-    this.laps.unshift(this.time);
+    this.totalTimeAtLaps.unshift(this.totalTime);
 
-    this.counter = 0;
-    this.time = moment().hour(0).minute(0).second(0).format('HH : mm : ss');
+    // this.counter = 0;
+    // this.time = moment().hour(0).minute(0).second(0).format('HH : mm : ss');
   }
 
   // delete lap
