@@ -17,7 +17,6 @@ export class SimpleTimerPage {
   timerStarted: boolean;
   startStopText: string;
 
-  showLapButton: boolean;
   showResetButton: boolean;
 
   private timer;
@@ -27,14 +26,7 @@ export class SimpleTimerPage {
   totalTimeAtLaps: string[];
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
-    this.startStopText = 'Start';
-    this.timerStarted = false;
-    this.showLapButton = false;
-    this.showResetButton = false;
-    this.totalTimeAtLaps = [];
-
-    this.totalTimeCounter = 0;
-    this.totalTime = moment().hour(0).minute(0).second(0).format('HH : mm : ss');
+    this.resetTimer();
   }
 
   ionViewDidLoad() {
@@ -47,36 +39,46 @@ export class SimpleTimerPage {
 
   startStopClicked(event) {
     this.timerStarted = !this.timerStarted;
-    this.showLapButton = !this.showLapButton;
 
     if (this.timerStarted) {
-      this.startStopText = 'Pause';
-      this.timer = setInterval(() => {this.displayTime();}, 1000);
-      this.showResetButton = false;
+      this.startTimer();
     }
     else {
-      this.startStopText = 'Resume';
-      clearTimeout(this.timer);
-      this.showResetButton = true;
+      this.stopTimer();
     }
   }
 
-  resetClicked(event) {
-    this.totalTimeCounter = 0;
+  private resetTimer() {
+    this.timerStarted = false;
     this.startStopText = 'Start';
     this.showResetButton = false;
+
+    this.totalTimeCounter = 0;
     this.totalTime = moment().hour(0).minute(0).second(0).format('HH : mm : ss');
     this.totalTimeAtLaps = [];
   }
 
-  lapClicked(event) {
-    this.totalTimeAtLaps.unshift(this.totalTime);
-
-    // this.counter = 0;
-    // this.time = moment().hour(0).minute(0).second(0).format('HH : mm : ss');
+  private startTimer() {
+    this.startStopText = 'Pause';
+    this.timer = setInterval(() => {
+      this.displayTime();
+    }, 1000);
+    this.showResetButton = false;
   }
 
-  // delete lap
-  //lap total times
+  private stopTimer() {
+    this.startStopText = 'Resume';
+    clearTimeout(this.timer);
+    this.showResetButton = true;
+  }
+
+  resetClicked(event) {
+    this.resetTimer();
+  }
+
+  lapClicked(event) {
+    this.totalTimeAtLaps.unshift(this.totalTime);
+  }
+
   //scroll laps
 }

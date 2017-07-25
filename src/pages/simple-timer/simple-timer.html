@@ -39,7 +39,7 @@
         <button ion-button full (click)="resetClicked()">Reset</button>
       </ion-col>
 
-      <ion-col *ngIf="showLapButton">
+      <ion-col *ngIf="timerStarted">
         <button ion-button full (click)="lapClicked()">Lap</button>
       </ion-col>
 
