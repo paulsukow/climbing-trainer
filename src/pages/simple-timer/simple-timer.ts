@@ -1,16 +1,11 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
-import * as moment from 'moment';
+import { StopWatchService } from './stopwatch.service';
 
-/*
-  Generated class for the SimpleTimer page.
-
-  See http://ionicframework.com/docs/v2/components/#navigation for more info on
-  Ionic pages and navigation.
-*/
 @Component({
   selector: 'page-simple-timer',
-  templateUrl: 'simple-timer.html'
+  templateUrl: 'simple-timer.html',
+  providers: [StopWatchService]
 })
 export class SimpleTimerPage {
 
@@ -21,20 +16,15 @@ export class SimpleTimerPage {
 
   private timer;
 
-  totalTimeCounter: number;
   totalTime: string;
   totalTimeAtLaps: string[];
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private stopWatchService: StopWatchService) {
     this.resetTimer();
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad SimpleTimerPage');
-  }
-
   displayTime() {
-    this.totalTime =  moment().hour(0).minute(0).second(this.totalTimeCounter++).format('HH : mm : ss');
+    this.totalTime =  this.stopWatchService.updateTime();
   }
 
   startStopClicked(event) {
@@ -46,16 +36,6 @@ export class SimpleTimerPage {
     else {
       this.stopTimer();
     }
-  }
-
-  private resetTimer() {
-    this.timerStarted = false;
-    this.startStopText = 'Start';
-    this.showResetButton = false;
-
-    this.totalTimeCounter = 0;
-    this.totalTime = moment().hour(0).minute(0).second(0).format('HH : mm : ss');
-    this.totalTimeAtLaps = [];
   }
 
   private startTimer() {
@@ -76,9 +56,22 @@ export class SimpleTimerPage {
     this.resetTimer();
   }
 
+  private resetTimer() {
+    this.timerStarted = false;
+    this.startStopText = 'Start';
+    this.showResetButton = false;
+
+    this.totalTime = this.stopWatchService.reset();
+    this.totalTimeAtLaps = [];
+  }
+
   lapClicked(event) {
+    this.addLap();
+  }
+
+  private addLap() {
     this.totalTimeAtLaps.unshift(this.totalTime);
   }
 
-  //scroll laps
+//scroll laps
 }
