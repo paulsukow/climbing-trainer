@@ -1,13 +1,13 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
-import { StopWatchService } from './stopwatch.service';
+import {StopWatchService} from "./stopwatch.service";
 
 @Component({
-  selector: 'page-simple-timer',
-  templateUrl: 'simple-timer.html',
+  selector: 'page-stopwatch',
+  templateUrl: 'stopwatch.html',
   providers: [StopWatchService]
 })
-export class SimpleTimerPage {
+export class StopwatchPage {
 
   timerStarted: boolean;
   startStopText: string;
@@ -74,4 +74,5 @@ export class SimpleTimerPage {
   }
 
 //scroll laps
+
 }
