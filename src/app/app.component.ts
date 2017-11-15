@@ -5,6 +5,7 @@ import { StatusBar, Splashscreen } from 'ionic-native';
 import { Page1 } from '../pages/page1/page1';
 import { Page2 } from '../pages/page2/page2';
 import {StopwatchPage} from "../pages/stopwatch/stopwatch";
+import {TimerPage} from "../pages/timer/timer";
 
 
 @Component({
@@ -13,7 +14,7 @@ import {StopwatchPage} from "../pages/stopwatch/stopwatch";
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = StopwatchPage;
+  rootPage: any = TimerPage;
 
   pages: Array<{title: string, component: any}>;
 
@@ -24,7 +25,8 @@ export class MyApp {
     this.pages = [
       { title: 'Page One', component: Page1 },
       { title: 'Page Two', component: Page2 },
-      { title: "Stopwatch", component: StopwatchPage }
+      { title: "Stopwatch", component: StopwatchPage },
+      { title: "Timer", component: TimerPage}
     ];
 
   }

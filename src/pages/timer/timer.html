@@ -1,0 +1,93 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Timer</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+  <ion-grid>
+
+    <ion-row>
+      <ion-col col-full>
+        <ion-item text-center>{{totalTime}}</ion-item>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+
+      <ion-col>
+        <button ion-button full (click)="startStopClicked()">{{startStopText}}</button>
+      </ion-col>
+
+      <!--<ion-col *ngIf="showResetButton">-->
+        <!--<button ion-button full (click)="resetClicked()">Reset</button>-->
+      <!--</ion-col>-->
+
+      <!--<ion-col *ngIf="timerStarted">-->
+        <!--<button ion-button full (click)="lapClicked()">Lap</button>-->
+      <!--</ion-col>-->
+
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <button ion-button  (click)="oneClicked()">1</button>
+      </ion-col>
+
+      <ion-col>
+        <button ion-button  (click)="twoClicked()">2</button>
+      </ion-col>
+
+      <ion-col>
+        <button ion-button  (click)="threeClicked()">3</button>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <button ion-button  (click)="fourClicked()">4</button>
+      </ion-col>
+
+      <ion-col>
+        <button ion-button  (click)="fiveClicked()">5</button>
+      </ion-col>
+
+      <ion-col>
+        <button ion-button  (click)="sixClicked()">6</button>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <button ion-button  (click)="sevenClicked()">7</button>
+      </ion-col>
+
+      <ion-col>
+        <button ion-button  (click)="eightClicked()">8</button>
+      </ion-col>
+
+      <ion-col>
+        <button ion-button  (click)="nineClicked()">9</button>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+      </ion-col>
+
+      <ion-col>
+        <button ion-button  (click)="zeroClicked()">0</button>
+      </ion-col>
+
+      <ion-col>
+        <!--<button ion-button  (click)="deleteClicked()">9</button>-->
+      </ion-col>
+    </ion-row>
+
+  </ion-grid>
+
+</ion-content>

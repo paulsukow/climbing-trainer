@@ -7,6 +7,7 @@ import {StopwatchPage} from "../pages/stopwatch/stopwatch";
 
 // Import the AF2 Module
 import { AngularFireModule } from 'angularfire2';
+import {TimerPage} from "../pages/timer/timer";
 
 // AF2 Settings
 export const firebaseConfig = {
@@ -22,7 +23,8 @@ export const firebaseConfig = {
     MyApp,
     Page1,
     Page2,
-    StopwatchPage
+    StopwatchPage,
+    TimerPage
   ],
   imports: [
     IonicModule.forRoot(MyApp),
@@ -33,7 +35,8 @@ export const firebaseConfig = {
     MyApp,
     Page1,
     Page2,
-    StopwatchPage
+    StopwatchPage,
+    TimerPage
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}]
 })
